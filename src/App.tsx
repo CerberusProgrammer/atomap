@@ -1,3 +1,9 @@
+import PlacesProvider from "./context/places/PlacesProvider";
+
 export default function App() {
-  return <div>App</div>;
+  return (
+    <PlacesProvider>
+      <p>hssdsdola</p>
+    </PlacesProvider>
+  );
 }
