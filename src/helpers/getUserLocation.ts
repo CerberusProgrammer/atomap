@@ -7,13 +7,15 @@ export const getUserLocation = async (): Promise<[number, number]> => {
       ({ coords }) => {
         resolve([coords.longitude, coords.latitude]);
       },
-      (err) => {
+      () => {
         const MySwal = withReactContent(Swal);
         MySwal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Cannot connect to server because of error while connecting to server.",
+          text: "Geolocation isn't supported by this browser.",
         });
+        throw new Error("Geolocation is not supported by this browser.");
+
         reject();
       }
     );
